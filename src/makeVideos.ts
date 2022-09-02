@@ -1,4 +1,3 @@
-// import VideomatikAPI from '@videomatik/api';
 const VideomatikAPI = require('@videomatik/api');
 import getProductCustomJSON from './getProductCustomJSON';
 import products from './data/products.json'
@@ -30,7 +29,6 @@ const makeVideos = async (amount: number) => {
       ] : [],
     });
 
-    console.log(`${i}th video request: ` + videoRequest);
     return videoRequest
   })
 
