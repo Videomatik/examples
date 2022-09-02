@@ -19,7 +19,9 @@ interface ReqQueryParams {
 const app = express();
 
 app.get<None, ResMessage, None, None>('/', (_, res) => {
-    return res.json({ message: 'Hi! This is my first app using Videomatik to create videos automatically :)' })
+    return res.json({ 
+        message: 'Hi! This is my first app using Videomatik to create videos automatically :)' 
+    })
 })
 
 app.get<None, ResMessage, None, None>('/surprise', (_, res) => {
@@ -29,7 +31,7 @@ app.get<None, ResMessage, None, None>('/surprise', (_, res) => {
 })
 
 app.get<None, ResVideos, None, ReqQueryParams>('/videos', async (req, res) => {
-    const videosAmount = parseInt(req.query.amount, 10);
+    const videosAmount = parseInt(req.query.amount);
     const videos = await makeVideos(videosAmount)
     return res.json({
         message: 'Your videos were created successfully!',
