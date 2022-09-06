@@ -19,13 +19,13 @@ interface ReqQueryParams {
 const app = express();
 
 app.get<None, ResMessage, None, None>('/', (_, res) => {
-    return res.json({ 
-        message: 'Hi! This is my first app using Videomatik to create videos automatically :)' 
+    return res.json({
+        message: 'Hi! This is my first app using Videomatik to create videos automatically :)'
     })
 })
 
 app.get<None, ResMessage, None, None>('/surprise', (_, res) => {
-    return res.json({ 
+    return res.json({
         message: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
     })
 })

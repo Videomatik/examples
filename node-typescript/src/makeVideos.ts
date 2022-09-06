@@ -21,11 +21,11 @@ const makeVideos = async (amount: number) => {
       customJSON,
       compositionId: 'default', // <- Vertical, neste template pode ser: default (Vertical), feed (Quadrado)
       actions: process.env.WEBHOOK_URL ? [
-      // Você pode colocar um Webhook para ser notificado quando o vídeo ficar pronto
-       {
-         type: 'webhook',
-         url: process.env.WEBHOOK_URL,
-       },
+        // Você pode colocar um Webhook para ser notificado quando o vídeo ficar pronto
+        {
+          type: 'webhook',
+          url: process.env.WEBHOOK_URL,
+        },
       ] : [],
     });
 

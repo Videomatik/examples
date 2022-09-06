@@ -1,23 +1,22 @@
-
 import baseCustomJSON from './data/customJSON.json'
 import mercadoLivreStyle from './data/mercadoLivreStyle.json'
 
 type CustomJSON = typeof baseCustomJSON
 
 interface Product {
-    name: string;
-    image: string;
-    description: string;
-    price: string;
+  name: string;
+  image: string;
+  description: string;
+  price: string;
 };
 
 const deepCopy = (object: CustomJSON): CustomJSON => JSON.parse(JSON.stringify(object))
 
 const truncateWithEllipsis = (text: string, maxLength: number): string => {
-    if (text.length > maxLength) {
-        return text.substring(0, maxLength - 3) + '...'
-    }
-    return text
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength - 3) + '...'
+  }
+  return text
 }
 
 const formatNumber = (number: number) => {
@@ -28,17 +27,17 @@ const formatNumber = (number: number) => {
 const getInstallmentPrice = (price: string): string => {
   const parsedPrice: string = (
     price
-    .replace(/R\$/g, '')
-    .replace(/ /g, '')
-    .replace(/\./g, '')
-    .replace(/,/g, '.')
+      .replace(/R\$/g, '')
+      .replace(/ /g, '')
+      .replace(/\./g, '')
+      .replace(/,/g, '.')
   )
   const installmentPrice: number = parseFloat(parsedPrice) / 10
 
   return `ou 10x de R$ ${formatNumber(installmentPrice)}`
 }
 
-export default function getProductCustomJSON(product: Product): CustomJSON {
+const getProductCustomJSON = (product: Product): CustomJSON => {
   const customJSON = deepCopy(baseCustomJSON)
 
   customJSON.images[0].source = mercadoLivreStyle.logoURL
@@ -63,3 +62,5 @@ export default function getProductCustomJSON(product: Product): CustomJSON {
 
   return customJSON;
 }
+
+export default getProductCustomJSON
