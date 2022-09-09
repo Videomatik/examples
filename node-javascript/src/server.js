@@ -12,15 +12,8 @@ app.get('/', (_, res) => {
   })
 })
 
-app.get('/surprise', (_, res) => {
-  return res.json({
-    message: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
-  })
-})
-
 app.get('/videos', async (req, res) => {
-  const videosAmount = parseInt(req.query.amount)
-  const videos = await makeVideos(videosAmount)
+  const videos = await makeVideos()
   return res.json({
     message: 'Your videos were created successfully!',
     videos

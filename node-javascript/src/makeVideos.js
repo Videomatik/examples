@@ -1,34 +1,41 @@
 const VideomatikAPI = require('@videomatik/api')
-const getProductCustomJSON = require('./getProductCustomJSON')
 const products = require('./data/products.json')
+const baseJSON = require('./templates/retailOfferMercadoLivre.json')
 require('dotenv/config')
 
 const videomatik = new VideomatikAPI({
   apiKey: process.env.API_KEY
 })
 
-const makeVideos = async (amount) => {
-  if (amount > products.length) {
-    throw new Error(`There are no sufficient products for producing ${amount} videos. Please, choose a number in the interval [1, ${products.length}].`)
-  }
-  const selectedProducts = products.slice(0, amount)
+const getCustomJSON = (baseJSON, data) => {
+  let strCustomJSON = JSON.stringify(baseJSON)
 
-  const arrCustomJSON = selectedProducts.map(prod => getProductCustomJSON(prod))
+  Object.entries(data).forEach(([key, value]) => {
+    const pattern = new RegExp(`#{${key}}`, 'g')
+    const escapedValue = JSON.stringify(value).slice(1, -1)
+    strCustomJSON = strCustomJSON.replace(pattern, escapedValue)
+  })
+
+  return JSON.parse(strCustomJSON)
+}
+
+const makeVideos = async (pooling = true) => {
+  const arrCustomJSON = products.map(prod => getCustomJSON(baseJSON, prod))
 
   const videoRequestPromises = arrCustomJSON.map(async (customJSON) => {
     const videoRequest = await videomatik.createVideoRequest({
-      templateId: 'oferta-varejo-nujyuua', // <- ID do Template
+      templateId: 'oferta-varejo-nujyuua',
       customJSON,
-      compositionId: 'default', // <- Vertical, neste template pode ser: default (Vertical), feed (Quadrado)
-      actions: process.env.WEBHOOK_URL
-        ? [
-            // Você pode colocar um Webhook para ser notificado quando o vídeo ficar pronto
+      compositionId: 'default',
+      actions: pooling
+        ? []
+        : [
+          // You can put a webhook to be notified when the video is ready
             {
               type: 'webhook',
               url: process.env.WEBHOOK_URL
             }
           ]
-        : []
     })
 
     return videoRequest
