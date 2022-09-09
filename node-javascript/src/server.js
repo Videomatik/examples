@@ -2,6 +2,8 @@ const express = require('express')
 const makeVideos = require('./makeVideos.js')
 require('dotenv/config')
 
+const PORT = process.env.PORT || 3333
+
 const app = express()
 
 app.get('/', (_, res) => {
@@ -25,4 +27,4 @@ app.get('/videos', async (req, res) => {
   })
 })
 
-app.listen(process.env.PORT)
+app.listen(PORT, () => console.log(`==== Server is listening on port ${PORT} ====`))

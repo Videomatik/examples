@@ -2,6 +2,8 @@ import express from 'express';
 import 'dotenv/config';
 import makeVideos from './makeVideos'
 
+const PORT = process.env.PORT || 3333
+
 type None = {}
 
 interface ResMessage {
@@ -39,4 +41,4 @@ app.get<None, ResVideos, None, ReqQueryParams>('/videos', async (req, res) => {
     })
 })
 
-app.listen(process.env.PORT)
+app.listen(PORT, () => console.log(`==== Server is listening on port ${PORT} ====`))
