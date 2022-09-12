@@ -1,23 +1,17 @@
+require('dotenv/config')
+
+const fs = require('fs')
+const path = require('path')
+const axios = require('axios')
 const VideomatikAPI = require('@videomatik/api')
+const { getCustomJSON } = require('./utils')
+
 const products = require('./data/products.json')
 const baseJSON = require('./templates/retailOfferMercadoLivre.json')
-require('dotenv/config')
 
 const videomatik = new VideomatikAPI({
   apiKey: process.env.API_KEY
 })
-
-const getCustomJSON = (baseJSON, data) => {
-  let strCustomJSON = JSON.stringify(baseJSON)
-
-  Object.entries(data).forEach(([key, value]) => {
-    const pattern = new RegExp(`#{${key}}`, 'g')
-    const escapedValue = JSON.stringify(value).slice(1, -1)
-    strCustomJSON = strCustomJSON.replace(pattern, escapedValue)
-  })
-
-  return JSON.parse(strCustomJSON)
-}
 
 // Returns the video URL when fully rendered
 const renderVideo = async (videoNumber, customJSON) => {
@@ -34,14 +28,13 @@ const renderVideo = async (videoNumber, customJSON) => {
 
       if (videoState === 'error' || videoNumber === 3) {
         clearInterval(intervalId)
-        const error = new Error(`An error ocurred while rendering the #${videoNumber} video.`)
+        const error = new Error(`An error ocurred while rendering video #${videoNumber}`)
         reject(error)
-      }
-      else if (videoState === 'finished') {
+      } else if (videoState === 'finished') {
         clearInterval(intervalId)
         resolve(videoRequest.renderJob.downloadURL)
       } else {
-        console.log(`Video #${videoNumber} is at state \"${videoState}\"`)
+        console.log(`Video #${videoNumber} is at state "${videoState}"`)
       }
     }, 5000) // Every 5 seconds, check the video status
   })
@@ -49,19 +42,31 @@ const renderVideo = async (videoNumber, customJSON) => {
 
 const makeVideos = async ({ download = false } = {}) => {
   const arrCustomJSON = products.map(prod => getCustomJSON(baseJSON, prod))
+  const folderName = 'rendered-videos'
 
   for (const i in arrCustomJSON) {
     const customJSON = arrCustomJSON[i]
 
     try {
-      const videoURL = await renderVideo(i + 1, customJSON)
+      const videoNumber = parseInt(i) + 1
+      const videoURL = await renderVideo(videoNumber, customJSON)
+
       if (download) {
-        // Download the video in the "rendered-videos" folder
+        console.log(`Downloading video #${videoNumber} to folder "${folderName}"...`)
+
+        const response = await axios.request({
+          url: videoURL,
+          responseType: 'arraybuffer'
+        })
+        const filename = path.join(__dirname, folderName, `video-${videoNumber}.mp4`)
+        fs.writeFileSync(filename, response.data)
+
+        console.log('Download completed! Enjoy your video :)\n')
       }
     } catch (err) {
-      console.error(err.message)
+      console.error(err.message + '\n')
     }
   }
 }
 
-makeVideos({ download: false })
+makeVideos({ download: true })
