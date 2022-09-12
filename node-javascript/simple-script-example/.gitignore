@@ -154,3 +154,6 @@ dist/**/*
 
 # ignore yarn.lock
 yarn.lock
+
+# Rendered videos
+src/rendered-videos
