@@ -26,7 +26,7 @@ const renderVideo = async (videoNumber, customJSON) => {
       const videoRequest = await videomatik.getOneVideoRequest(videoRequestId)
       const videoState = videoRequest.renderJob.state
 
-      if (videoState === 'error' || videoNumber === 3) {
+      if (videoState === 'error') {
         clearInterval(intervalId)
         const error = new Error(`An error ocurred while rendering video #${videoNumber}`)
         reject(error)
