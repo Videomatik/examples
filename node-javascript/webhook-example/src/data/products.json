@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Apple iPhone 13 Pro Max",
+        "image": "https:\/\/http2.mlstatic.com\/D_NQ_NP_879647-MLA47781235699_102021-O.webp",
+        "description": "6.7-inch Super Retina XDR display with ProMotion for a faster, more responsive experience. | Cinema Mode. Decreases the depth of field and changes the focus in your videos...",
+        "price": "$1,547.99"
+    },
+    {
+        "name": "Philco Smart TV LED 4K 50\"",
+        "image": "https:\/\/http2.mlstatic.com\/D_NQ_NP_829826-MLA48700688554_122021-O.webp",
+        "description": "It's resolution is 4K. | HDR technology for better image quality. | Sound Mode: Dolby Audio, MTS. | Manage it by voice command. | It has a sharing function...",
+        "price": "$458.79"
+    },
+    {
+        "name": "Samsung Smartphone Galaxy M23",
+        "image": "https:\/\/http2.mlstatic.com\/D_NQ_NP_702920-MLB49653515969_042022-O.webp",
+        "description": "The Galaxy M23 5G, the newest beloved one of the M line, arrives with a set of versatile cameras, a large 6.6-inch screen with a 120Hz refresh rate and a...",
+        "price": "$329.99"
+    },
+    {
+        "name": "Samsung Smartwatch Galaxy Watch4",
+        "image": "https:\/\/http2.mlstatic.com\/D_NQ_NP_780957-MLB47296050535_082021-O.webp",
+        "description": "The smart watch that accompanies you at all times! Samsung's Galaxy Watch4 BT is the Smartwatch that offers the most complete set of solutions for monitoring...",
+        "price": "$201.90"
+    },
+    {
+        "name": "Dell Latitude 3510 15.6\"",
+        "image": "https:\/\/http2.mlstatic.com\/D_NQ_NP_709121-MLA44939170292_022021-O.webp",
+        "description": "Intel Core i5 processor. | 8GB RAM memory. | 15.6\" LED screen. | 1920x1080px resolution. | Anti-glare. | Intel UHD Graphics 620 video card. | Wi-Fi and bluetooth connection...",
+        "price": "$957.99"
+    }
+]
