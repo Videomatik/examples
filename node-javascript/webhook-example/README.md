@@ -11,3 +11,5 @@ After that, simply use the following command:
 ```
 
 It should download all the videos in the `src/rendered-videos` folder, printing the video requests statuses in the terminal as the webhooks come from Videomatik.
+
+*NOTE: The server runs on port 3333 by default, but you can change it by setting the `PORT` environment variable in the `.env` file.*
