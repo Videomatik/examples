@@ -1,6 +1,6 @@
 require('dotenv/config')
 const VideomatikAPI = require('@videomatik/api')
-const { getCustomJSON } = require('./getCustomJSON')
+const getCustomJSON = require('./getCustomJSON')
 const downloadVideoFile = require('./downloadVideoFile')
 
 // Data (my products and the custom JSON)

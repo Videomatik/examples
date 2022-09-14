@@ -10,4 +10,4 @@ const getCustomJSON = (baseJSON, data) => {
   return JSON.parse(strCustomJSON)
 }
 
-module.exports = { getCustomJSON }
+module.exports = getCustomJSON
