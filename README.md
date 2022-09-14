@@ -1,5 +1,5 @@
-<p align="center"><img src="https://storage.videomatik.com.br/videomatik/hidden_assets/CAWrMOC41nP9OqBfpOjxPNq4Chv1/e748b645-af52-4c9c-b683-be34489506a6.png" /></p>
-<h3 align="center">Video creation made simple</h3>
+<p align="center"><img src="https://i.imgur.com/1Y8Gi0m.png" /></p>
+<h3 align="center">Video creation made simple!</h3>
 <p align="center">Scale your creative content creation process with ease.</p>
 
 # Videomatik Code Examples
