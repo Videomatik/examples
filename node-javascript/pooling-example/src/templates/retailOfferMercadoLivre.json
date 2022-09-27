@@ -1,22 +1,22 @@
 {
   "soundtrack": {
-    "startTime": 0,
-    "source": ""
+    "startTime": 16.450245703125002,
+    "source": "https://storage.videomatik.com.br/videomatik/audios/mixkit_aerobic_fashion_327_f0eca03ffd.mp3"
   },
   "images": [
     {
       "path": "assets[0]",
-      "source": "https://storage.videomatik.com.br/videomatik/templates/oferta-varejo-nujyuua/assets/oxdh6mre--compressed-png.png"
+      "source": "https://storage.videomatik.com.br/videomatik/hidden_assets/CAWrMOC41nP9OqBfpOjxPNq4Chv1/ffb29e27-9b45-4617-a191-c5255570b584.png"
     },
     {
       "path": "assets[1]",
-      "source": "https://storage.videomatik.com.br/videomatik/templates/oferta-varejo-nujyuua/assets/espykfb8--compressed-png.png"
+      "source": "#{image}"
     }
   ],
   "version": "1",
   "texts": [
     {
-      "fillColor": "#ffffff",
+      "fillColor": "#0b297d",
       "fontStyle": "Bold",
       "path": "assets[3].layers[0].t.d.k[0]",
       "fontWeight": "700",
@@ -24,15 +24,16 @@
       "hidden": null,
       "time": 0,
       "fontSize": 53,
-      "value": "ou 10x de R$ 99,99",
+      "value": "Enjoy our special offers!",
       "justification": "CENTER",
       "fontFamily": "Arial",
       "stroke": null,
       "fontName": "Arial-BoldMT",
-      "lineHeight": 63.6
+      "lineHeight": 63.6,
+      "fontURL": "/fonts/Arial-BoldMT.ttf"
     },
     {
-      "fillColor": "#ffffff",
+      "fillColor": "#0b297d",
       "fontStyle": "Bold",
       "path": "assets[3].layers[1].t.d.k[0]",
       "fontWeight": "700",
@@ -40,12 +41,13 @@
       "hidden": null,
       "time": 0,
       "fontSize": 129,
-      "value": "R$ 999,90",
+      "value": "#{price}",
       "justification": "CENTER",
       "fontFamily": "Arial",
       "stroke": null,
       "fontName": "Arial-BoldMT",
-      "lineHeight": 154.8
+      "lineHeight": 154.8,
+      "fontURL": "/fonts/Arial-BoldMT.ttf"
     },
     {
       "fillColor": "#000000",
@@ -56,7 +58,7 @@
       "hidden": null,
       "time": 0,
       "fontSize": 31,
-      "value": "DESCRIÇÃO DO PRODUTO\nDESCRIÇÃO DO PRODUTO\nDESCRIÇÃO DO PRODUTO",
+      "value": "#{description}",
       "justification": "CENTER",
       "fontFamily": "Arial",
       "stroke": null,
@@ -72,42 +74,44 @@
       "hidden": null,
       "time": 0,
       "fontSize": 88,
-      "value": "NOME\nPRODUTO",
+      "value": "#{name}",
       "justification": "CENTER",
       "fontFamily": "Arial",
       "stroke": null,
       "fontName": "Arial-BoldMT",
-      "lineHeight": 98
+      "lineHeight": 98,
+      "fontURL": "/fonts/Arial-BoldMT.ttf"
     },
     {
-      "fillColor": "#ffffff",
+      "fillColor": "#0b297d",
       "fontStyle": "Bold",
       "path": "assets[4].layers[2].t.d.k[0]",
-      "fontWeight": "700",
+      "fontWeight": 700,
       "fontAscent": 71.5988159179688,
       "hidden": null,
       "time": 0,
       "fontSize": 134,
-      "value": "APROVEITE\nAS OFERTAS",
+      "value": "SPECIAL\nOFFERS",
       "justification": "CENTER",
       "fontFamily": "Arial",
       "stroke": null,
       "fontName": "Arial-BoldMT",
-      "lineHeight": 151
+      "lineHeight": 151,
+      "fontURL": "/fonts/Arial-BoldMT.ttf"
     }
   ],
   "shapes": [
     {
       "path": "assets[2].layers[2].shapes[0].it[2]",
-      "color": "#aa1e0d"
+      "color": "#ffe72d"
     },
     {
       "path": "assets[3].layers[2].shapes[0].it[2]",
-      "color": "#aa1e0d"
+      "color": "#ffe72d"
     },
     {
       "path": "assets[3].layers[9].shapes[0].it[2]",
-      "color": "#aa1e0d"
+      "color": "#ffe72d"
     },
     {
       "path": "assets[3].layers[10].shapes[0].it[1]",
@@ -119,7 +123,7 @@
     },
     {
       "path": "assets[4].layers[3].shapes[0].it[2]",
-      "color": "#aa1e0d"
+      "color": "#ffe72d"
     }
   ]
 }
