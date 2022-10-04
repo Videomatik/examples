@@ -27,8 +27,9 @@ const makeVideos = async (webhookURL) => {
       console.log(`Video request "${videoRequest.id}" created.`)
       return videoRequest
     } catch (err) {
-      console.error('An error ocurred while creating the video request:', err.message)
-      return null
+      const errorMessage = err.response ? err.response.data.message : err.message
+      console.error('An error ocurred while creating the video request:', errorMessage)
+      process.exit(1) // Finish the process with failures
     }
   })
 
