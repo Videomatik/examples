@@ -46,6 +46,49 @@ Having the Custom JSONs in hand, you're all up to go for the ***Video Requests**
   - **compositionId**: (Optional) ID of the composition of the Template which will be rendered. The default is 'default'.
   - **actions**: (Optional) Actions that should be performed after the video is created. Webhooks go here!
 
+### Actions
+
+The ***actions*** is an array of operations that will be performed on the creation of your video. For now, the server supports only webhook actions.
+
+- Webhooks
+
+You can pass a webhook just like the example below and it will receive a POST request from the server that is rendering your video. You can have multiple webhooks on your video request:
+```
+actions: [
+  {
+    type: 'webhook',
+    url: 'http://localhost:7000/webhook-example1'
+  },
+  {
+    type: 'webhook',
+    url: 'http://localhost:7000/webhook-example2'
+  }
+]
+```
+
+The webhook action will be triggered twice, ***when the video starts rendering and when the video finishes.*** In both cases you will receive the ***videoRequestId*** and the ***state*** of the request, which can be "render" or "finished".
+
+
+```
+{
+  "videoRequestId": "XXXXXXXX",
+  "state": "render"
+}
+```
+
+When the video finishes you also will receive the ***downloadURL***.
+
+
+```
+{
+  "videoRequestId": "XXXXXXXX",
+  "state": "finished",
+  "downloadURL": "https://storage.videomatik.com.br/videomatik/videos-requests/YYYYYYYY/XXXXXXXX.mp4",
+}
+```
+
+In case an error occurs while rendering the video, the finished rendering webhook won't be triggered.
+
 ## Repository Structure
 
 As previously mentioned, each programming language has it's own folder (such as `'node-javascript'`, `'python'`, `'java'` etc.). If there aren't examples for your programming language, please let us know by **opening an issue**.
