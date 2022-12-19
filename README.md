@@ -57,14 +57,16 @@ You can pass a webhook just like the example below and it will receive a POST re
 actions: [
   {
     type: 'webhook',
-    url: 'http://localhost:7000/webhook-example1'
+    url: 'https://webhook.site/<webhook id>'
   },
   {
     type: 'webhook',
-    url: 'http://localhost:7000/webhook-example2'
+    url: 'https://webhook.site/<webhook 2 id>'
   }
 ]
 ```
+
+We recommend using [webhook.site](https://webhook.site/) as a way of testing your webhook responses.
 
 The webhook action will be triggered twice, ***when the video starts rendering and when the video finishes.*** In both cases you will receive the ***videoRequestId*** and the ***state*** of the request, which can be "render" or "finished".
 
