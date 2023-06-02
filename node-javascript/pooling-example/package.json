@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@videomatik/api": "^2.0.0",
+    "@videomatik/api": "^2.1.1",
     "axios": "^0.27.2",
     "dotenv": "^16.0.2"
   },
