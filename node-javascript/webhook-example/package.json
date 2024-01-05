@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@videomatik/api": "^2.0.0",
-    "axios": "^0.27.2",
+    "axios": "^1.6.4",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "ngrok": "^4.3.3"
